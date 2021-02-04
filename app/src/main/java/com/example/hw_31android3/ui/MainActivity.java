@@ -21,10 +21,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Post post = new Post("rrrrrrrrr", "Content_Android_Updateeeeeeeeeee", 3, 5);
+        Post post = new Post("Android", "Content_Android", 1, 1);//id=1
+        Post post2 = new Post("Android_2", "Content_Android_Update", 1, 1);//id=1(update->post)
         createPost(post);
-        updatePost(post,1);
-        deletePost(1);
+        //updatePost(post2,1);
+        //deletePost(1);//delete post2 id=1
 
 
     }
