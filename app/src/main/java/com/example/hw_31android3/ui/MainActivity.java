@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     Intent intent = new Intent(MainActivity.this, PostInfo.class);
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("title",response.body().getTitle());
+                    intent.putExtra("title",response.body().getTitle());
                     intent.putExtra("content",response.body().getContent());
                     intent.putExtra("user",response.body().getUser());
                     intent.putExtra("group",response.body().getGroup());
