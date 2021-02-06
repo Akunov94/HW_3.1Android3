@@ -1,34 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
-    android:background="@color/purple_700"
+    android:layout_margin="10dp"
+    android:background="@color/teal_200"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools">
-    <TextView
-        android:id="@+id/tv_title_info"
-        android:textColor="@color/purple_200"
-        style="@style/posts_itemview"
-        tools:ignore="MissingConstraints" />
-    <TextView
-        android:id="@+id/tv_content_info"
-        style="@style/posts_itemview"
-        android:textColor="@color/purple_200"
-        tools:ignore="MissingConstraints" />
-    <TextView
-        android:id="@+id/tv_user_info"
-        android:text="title"
-        android:textColor="@color/purple_200"
-        style="@style/posts_itemview"
-        tools:ignore="MissingConstraints" />
-    <TextView
-        android:id="@+id/tv_group_info"
-        android:text="title"
-        android:textColor="@color/purple_200"
-        style="@style/posts_itemview"
-        tools:ignore="MissingConstraints" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingBottom="8dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_title_info"
+            android:textColor="@color/purple_200"
+            style="@style/posts_itemview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/tv_content_info"
+            style="@style/posts_itemview"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_info"
+            android:textColor="@color/purple_200"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/tv_user_info"
+            app:layout_constraintTop_toBottomOf="@+id/tv_content_info"
+            android:text="title"
+            android:textColor="@color/purple_200"
+            style="@style/posts_itemview"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/tv_group_info"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_info"
+            android:text="title"
+            android:textColor="@color/purple_200"
+            style="@style/posts_itemview"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 <!--    <androidx.recyclerview.widget.RecyclerView-->
 <!--        android:id="@+id/postsInfoRV"-->
 <!--        android:layout_width="match_parent"-->
@@ -41,4 +54,4 @@
 <!--        tools:listitem="@layout/post_info_item_view"-->
 <!--        tools:ignore="InvalidId" />-->
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>
