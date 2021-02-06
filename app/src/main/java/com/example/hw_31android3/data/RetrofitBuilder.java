@@ -18,7 +18,7 @@ public class RetrofitBuilder {
 
     private static AndroidApi createService() {
     return new Retrofit.Builder()
-            .baseUrl("http://android-3-mocker.herokuapp.com/")
+            .baseUrl("https://android-3-mocker.herokuapp.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(AndroidApi.class);

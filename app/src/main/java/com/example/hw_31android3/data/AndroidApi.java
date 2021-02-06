@@ -17,6 +17,8 @@ public interface AndroidApi {
     @GET("posts")
 //на получения ресурса
     Call<List<Post>> getPosts();
+    @GET("posts/{id}")
+    Call<Post> getPostId(@Path("id") int id);
 
     @PUT("posts/{id}")
 //на обновление и изменение ресурса

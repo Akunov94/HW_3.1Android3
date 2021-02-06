@@ -14,8 +14,8 @@ public class Post {
         this.group = group;
     }
 
-    public Post() {
-    }
+//    public Post() {
+//    }
 
     @SerializedName("id")
     private Integer id;

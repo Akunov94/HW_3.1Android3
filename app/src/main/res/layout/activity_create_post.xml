@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <EditText
+        android:id="@+id/et_title"
+        android:hint="title"
+        style="@style/et_create_post" />
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_below="@+id/et_title"
+        android:hint="content"
+        style="@style/et_create_post" />
+    <EditText
+        android:id="@+id/et_user"
+        android:inputType="number"
+        android:layout_below="@+id/et_content"
+        android:hint="user"
+        style="@style/et_create_post" />
+    <EditText
+        android:inputType="number"
+        android:layout_below="@+id/et_user"
+        android:id="@+id/et_group"
+        android:hint="group"
+        style="@style/et_create_post" />
+
+        <Button
+            android:onClick="OnclickSend"
+            android:layout_below="@+id/et_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center_horizontal"
+            android:text="Send" />
+
+
+</RelativeLayout>
