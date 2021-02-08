@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         posts = new ArrayList<>();
         postAdapter = new PostAdapter(posts, this);
         postsRecyclerV.setAdapter(postAdapter);
-        postAdapter.notifyDataSetChanged();
         postAdapter.setOnItemClick(new PostAdapter.OnItemClick() {
             @Override
             public void postClickPost(Post post) {
