@@ -51,8 +51,10 @@ public class CreatePost extends AppCompatActivity {
         etGroup = findViewById(R.id.et_group);
         if (getIntent().getStringExtra("title_info") != null) {
             getPostInfo();
+            postArgs = true;
         } else {
             Toast.makeText(this, "ololo", Toast.LENGTH_SHORT).show();
+            postArgs = false;
         }
 
     }
@@ -77,20 +79,22 @@ public class CreatePost extends AppCompatActivity {
     }
 
     public void OnclickSend(View view) {
-        if (getIntent()!=null){
+        if (postArgs) {
             postUpdate();
-        }else {
-            postAdd();
-        }
 
+        } else {
+            postAdd();
+
+        }
     }
+
     private void postUpdate() {
         title = etTitle.getText().toString();
         content = etContent.getText().toString();
         user = Integer.parseInt(etUser.getText().toString());
         group = Integer.parseInt(etGroup.getText().toString());
         Post pUpdate = new Post(title, content, user, group);
-        updatePost(pUpdate,postId);
+        updatePost(pUpdate, postId);
         Intent intent = new Intent(CreatePost.this, MainActivity.class);
         startActivity(intent);
     }
