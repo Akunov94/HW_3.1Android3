@@ -66,7 +66,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostsViewHolde
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    onItemClick.postClick(getAdapterPosition());
+                    onItemClick.postClickPost(posts.get(getAdapterPosition()));
                 }
             });
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -84,7 +84,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostsViewHolde
     }
 
     public interface OnItemClick {
-        void postClick(int position);
+        void postClickPost(Post post);
         void postLongClick(int position);
     }
 

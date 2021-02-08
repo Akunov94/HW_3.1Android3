@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         postAdapter.notifyDataSetChanged();
         postAdapter.setOnItemClick(new PostAdapter.OnItemClick() {
             @Override
-            public void postClick(int position) {
-                getPostId(position);
+            public void postClickPost(Post post) {
+                getPostId(post);
             }
 
             @Override
@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         postAdapter.remove(position);
-                        postAdapter.notifyDataSetChanged();
                         deletePost(position);
+                        postAdapter.notifyDataSetChanged();
                         Toast.makeText(MainActivity.this, "Успешно удалено", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -81,18 +81,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void getPostId(int position) {
-        int postId = posts.get(position).getId();//postAdapter.posts.get(position).getId()
-        RetrofitBuilder.getInstance().getPostId(postAdapter.posts.get(position).getId()).enqueue(new Callback<Post>() {
+    private void getPostId(Post post) {
+        RetrofitBuilder.getInstance().getPostId(post.getId()).enqueue(new Callback<Post>() {
             @Override
             public void onResponse(Call<Post> call, Response<Post> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     Intent intent = new Intent(MainActivity.this, PostInfo.class);
-                    Bundle bundle = new Bundle();
-                    intent.putExtra("title",response.body().getTitle());
-                    intent.putExtra("content",response.body().getContent());
-                    intent.putExtra("user",response.body().getUser());
-                    intent.putExtra("group",response.body().getGroup());
+                    intent.putExtra("postId",post.getId());
+                    intent.putExtra("title",post.getTitle());
+                    intent.putExtra("content",post.getContent());
+                    intent.putExtra("user",post.getUser());
+                    intent.putExtra("group",post.getGroup());
                     startActivity(intent);
                 }
 
@@ -123,23 +122,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void updatePost(Post post, int id) {
-
-        RetrofitBuilder.getInstance().updatePost(id, post).enqueue(new Callback<Post>() {
-            @Override
-            public void onResponse(Call<Post> call, Response<Post> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    Log.d("post", "Update_Success");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Post> call, Throwable t) {
-                Log.d("post", t.getMessage());
-
-            }
-        });
-    }
 
     public void deletePost(int positionId) {
         RetrofitBuilder.getInstance().deletePost(postAdapter.posts.get(positionId).getId()).enqueue(new Callback<Void>() {

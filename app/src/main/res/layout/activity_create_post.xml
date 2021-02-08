@@ -6,25 +6,30 @@
     android:orientation="vertical"
     android:padding="16dp">
     <EditText
+        android:id="@+id/et_postId"
+        android:hint="id"
+        style="@style/et_create_post" />
+    <EditText
         android:id="@+id/et_title"
-        android:hint="title"
+        android:layout_below="@+id/et_postId"
+        android:hint="titleeeee"
         style="@style/et_create_post" />
     <EditText
         android:id="@+id/et_content"
         android:layout_below="@+id/et_title"
-        android:hint="content"
+        android:hint="contenttttt"
         style="@style/et_create_post" />
     <EditText
         android:id="@+id/et_user"
         android:inputType="number"
         android:layout_below="@+id/et_content"
-        android:hint="user"
+        android:hint="userrrrr"
         style="@style/et_create_post" />
     <EditText
         android:inputType="number"
         android:layout_below="@+id/et_user"
         android:id="@+id/et_group"
-        android:hint="group"
+        android:hint="grouppppp"
         style="@style/et_create_post" />
 
         <Button
